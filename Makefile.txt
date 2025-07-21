@@ -1,0 +1,25 @@
+# Compiler to use
+CXX = g++
+
+# Compiler flags: -Wall (all warnings), -Wextra (extra warnings), -std=c++11 (C++ standard)
+CXXFLAGS = -Wall -Wextra -std=c++11
+
+# Target executable name
+TARGET = tictactoe
+
+# List of source files
+SRCS = main.cpp
+
+# Default rule: build the target
+all: $(TARGET)
+
+# Rule to build the target from the source file(s)
+$(TARGET): $(SRCS)
+	$(CXX) $(CXXFLAGS) $(SRCS) -o $(TARGET)
+
+# Clean rule to remove generated files (like the executable)
+clean:
+	rm -f $(TARGET)
+
+# Phony targets ensure make doesn't confuse them with file names
+.PHONY: all clean
